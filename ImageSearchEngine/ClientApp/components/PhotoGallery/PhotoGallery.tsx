@@ -1,6 +1,7 @@
 ﻿import * as React from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
+import ImageComponent from './ImageComponent';
 
 interface PhotoGalleryProps {
 	galleryImages: GalleryItem[];
@@ -37,7 +38,11 @@ export default class PhotoGallery extends React.Component<PhotoGalleryProps, Pho
 
 	public render() {
 		return (<div>
-			<Gallery photos={this.props.galleryImages} onClick={this.openLightbox} margin={1} />
+			<Gallery
+				photos={this.props.galleryImages}
+				onClick={this.openLightbox}
+				margin={1}
+				ImageComponent={ImageComponent} />
 			<Lightbox images={this.props.lightboxImages}
 				onClose={this.closeLightbox}
 				onClickPrev={this.gotoPrevious}

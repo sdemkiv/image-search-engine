@@ -14,3 +14,17 @@ body {
 .search-input .react-tagsinput-input {
 	width: 100px;
 }
+
+.react-photo-gallery--gallery .gallery-image-container {
+	overflow: hidden;
+	background-color: #eee;
+	cursor: pointer;
+	overflow: hidden;
+	float: left;
+	position: relative;
+}
+
+.react-photo-gallery--gallery .gallery-image-container > .gallery-image:hover {
+	transition: all 0.2s; 
+	transform: scale(1.1);
+}
