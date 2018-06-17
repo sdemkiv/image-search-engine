@@ -26,16 +26,10 @@ export default class SearchPhotos extends React.Component<{}, SearchPhotosState>
 		</div>;
 	}
 
-	searchForImages() {
-		var tags = $('#tagsInput').val() as string;
-		if (tags) {
-			tags = tags.replace(" ", "+");
-		} else {
-			console.log('no input');
-			return;
-		}
-		this.getFlickrPhotos(tags);
-		this.getPixabayPhotos(tags);
+	searchForImages(tags: string[]) {
+		var searchTags = tags.join('+');
+		this.getFlickrPhotos(searchTags);
+		this.getPixabayPhotos(searchTags);
 	}
 
 	getFlickrPhotos(tags: string) {

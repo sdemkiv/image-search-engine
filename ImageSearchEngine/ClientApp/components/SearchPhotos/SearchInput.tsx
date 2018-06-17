@@ -1,20 +1,38 @@
 ﻿import * as React from 'react';
 import * as $ from 'jquery';
 
+import TagsInput from 'react-tagsinput';
+import 'react-tagsinput/react-tagsinput.css'
+
 interface SearchInputProps {
-	search: () => {}
+	search: (tags: string[]) => {}
 }
 
-export default class SearchInput extends React.Component<SearchInputProps, {}> {
+interface SearchInputState {
+	tags: string[]
+}
+
+export default class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
+	constructor() {
+		super();
+
+		this.state = {
+			tags: []
+		};
+	}
+
+	changeHander(tags) {
+		this.setState({ tags })
+		this.props.search(tags);
+	}
+
 	public render() {
 		return <div className="row search-input">
 			<div className="col-md-6 col-md-offset-3">
-				<div className="input-group">
-					<input id="tagsInput" type="text" className="form-control" />
-					<div className="input-group-btn">
-						<button className="btn btn-default" type="button" onClick={this.props.search}> Search </button>
-					</div>
-				</div>
+				<TagsInput
+					value={this.state.tags}
+					onChange={(tags) => this.changeHander(tags)}
+					inputProps={{ placeholder: "Add search tag" }} />
 			</div>
 		</div>;
 	}
