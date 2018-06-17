@@ -3,10 +3,12 @@ import * as $ from 'jquery';
 
 import SearchInput from './SearchInput';
 import PhotoGallery, { GalleryItem, LightboxItem } from '../PhotoGallery/PhotoGallery';
+import { BarLoader } from 'react-spinners';
 
 interface SearchPhotosState {
 	galleryPhotos: GalleryItem[];
 	lightboxPhotos: LightboxItem[];
+	loading: boolean
 }
 
 export default class SearchPhotos extends React.Component<{}, SearchPhotosState> {
@@ -15,18 +17,21 @@ export default class SearchPhotos extends React.Component<{}, SearchPhotosState>
 
 		this.state = {
 			galleryPhotos: [],
-			lightboxPhotos: []
+			lightboxPhotos: [],
+			loading: false
 		};
 	}
 
 	public render() {
 		return <div>
 			<SearchInput search={this.searchForImages.bind(this)} />
+			<BarLoader loading={this.state.loading} color={'#638421'} height={2} heightUnit={'px'} width={100} widthUnit={'%'} />
 			<PhotoGallery galleryImages={this.state.galleryPhotos} lightboxImages={this.state.lightboxPhotos} />
 		</div>;
 	}
 
 	searchForImages(tags: string[]) {
+		this.setState({ loading: true });
 		var searchTags = tags.join('+');
 		this.getFlickrPhotos(searchTags);
 		this.getPixabayPhotos(searchTags);
@@ -69,6 +74,7 @@ export default class SearchPhotos extends React.Component<{}, SearchPhotosState>
 				new LightboxItem(largeSize.source, 'Flickr'));
 
 			this.forceUpdate();
+			this.setState({ loading: false });
 		}).fail((jqXHR, errorText) => { console.log(jqXHR, errorText); });
 	}
 
@@ -85,6 +91,7 @@ export default class SearchPhotos extends React.Component<{}, SearchPhotosState>
 					new LightboxItem(photo.largeImageURL, 'Pixabay'));
 
 				this.forceUpdate();
+				this.setState({ loading: false });
 			});
 		}).fail((jqXHR, errorText) => { console.log(jqXHR, errorText); });
 	}
