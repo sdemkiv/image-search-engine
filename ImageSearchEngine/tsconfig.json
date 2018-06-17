@@ -6,8 +6,9 @@
     "target": "es5",
     "jsx": "react",
     "sourceMap": true,
-    "skipDefaultLibCheck": true,
-    "strict": true,
+    "allowJs": true,
+    //"skipDefaultLibCheck": true,
+    //"strict": true,
     "types": ["webpack-env"]
   },
   "exclude": [

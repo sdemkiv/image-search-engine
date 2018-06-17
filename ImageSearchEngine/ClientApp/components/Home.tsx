@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router-dom';
+import SearchPhotos from './SearchPhotos/SearchPhotos';
 
-export class Home extends React.Component<RouteComponentProps<{}>, {}> {
-    public render() {
-        return <div>
-        </div>;
-    }
+export default class Home extends React.Component<RouteComponentProps<{}>, {}> {
+	public render() {
+		return <SearchPhotos />;
+	}
 }
