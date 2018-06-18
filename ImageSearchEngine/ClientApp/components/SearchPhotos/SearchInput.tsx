@@ -3,6 +3,7 @@ import * as $ from 'jquery';
 
 import TagsInput from 'react-tagsinput';
 import 'react-tagsinput/react-tagsinput.css'
+import { BarLoader } from 'react-spinners';
 
 interface SearchInputProps {
 	search: (tags: string[]) => {}
@@ -37,6 +38,7 @@ export default class SearchInput extends React.Component<SearchInputProps, Searc
 					onChange={(tags) => this.changeHander(tags)}
 					inputProps={{ placeholder: "Add search tag" }} />
 			</div>
+			<BarLoader loading={false} color={'#638421'} height={2} heightUnit={'px'} width={100} widthUnit={'%'} />
 		</div>;
 	}
 

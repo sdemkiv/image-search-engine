@@ -21,12 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\PhotoGallery\ImageComponent.tsx" />
+    <None Remove="ClientApp\components\PhotoGallery\InfiniteScroller.tsx" />
     <None Remove="ClientApp\components\PhotoGallery\PhotoGallery.tsx" />
     <None Remove="ClientApp\components\SearchPhotos.tsx" />
     <None Remove="ClientApp\components\SearchPhotos\SearchInput.tsx" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\PhotoGallery\ImageComponent.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\PhotoGallery\InfiniteScroller.tsx" />
     <TypeScriptCompile Include="ClientApp\components\PhotoGallery\PhotoGallery.tsx" />
     <TypeScriptCompile Include="ClientApp\components\SearchPhotos\SearchInput.tsx" />
     <TypeScriptCompile Include="ClientApp\components\SearchPhotos\SearchPhotos.tsx" />
