@@ -13,6 +13,8 @@ interface SearchInputState {
 }
 
 export default class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
+	private inputElement: TagsInput;
+
 	constructor() {
 		super();
 
@@ -27,13 +29,18 @@ export default class SearchInput extends React.Component<SearchInputProps, Searc
 	}
 
 	public render() {
-		return <div className="row search-input navbar-fixed-top">
+		return <div className="search-input navbar-fixed-top">
 			<div className="col-md-6 col-md-offset-3">
 				<TagsInput
+					ref={(inp) => this.inputElement = inp}
 					value={this.state.tags}
 					onChange={(tags) => this.changeHander(tags)}
 					inputProps={{ placeholder: "Add search tag" }} />
 			</div>
 		</div>;
+	}
+
+	componentDidMount() {
+		this.inputElement.focus();
 	}
 }
