@@ -7,12 +7,17 @@ body {
 }
 
 .search-input {
-	margin-top: 16px;
-	margin-bottom: 16px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	background-color: rgba(255, 255, 255, 0.85);
 }
 
 .search-input .react-tagsinput-input {
 	width: 100px;
+}
+
+.react-photo-gallery--gallery {
+	margin-top: 75px;
 }
 
 .react-photo-gallery--gallery .gallery-image-container {

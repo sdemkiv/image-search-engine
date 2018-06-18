@@ -27,7 +27,7 @@ export default class SearchInput extends React.Component<SearchInputProps, Searc
 	}
 
 	public render() {
-		return <div className="row search-input">
+		return <div className="row search-input navbar-fixed-top">
 			<div className="col-md-6 col-md-offset-3">
 				<TagsInput
 					value={this.state.tags}
