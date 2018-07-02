@@ -22,18 +22,22 @@
 
   <ItemGroup>
     <None Remove="ClientApp\components\PhotoGallery\ImageComponent.tsx" />
-    <None Remove="ClientApp\components\PhotoGallery\InfiniteScroller.tsx" />
+    <None Remove="ClientApp\components\PhotoGallery\InfiniteGalleryScroll.tsx" />
     <None Remove="ClientApp\components\PhotoGallery\PhotoGallery.tsx" />
     <None Remove="ClientApp\components\SearchPhotos.tsx" />
-    <None Remove="ClientApp\components\SearchPhotos\SearchInput.tsx" />
+    <None Remove="ClientApp\components\SearchImages\SearchInput.tsx" />
+    <None Remove="ClientApp\services\images\IImageService.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\services\images\FlickrService.ts" />
+    <TypeScriptCompile Include="ClientApp\services\images\IImageService.ts" />
+    <TypeScriptCompile Include="ClientApp\services\images\PixabayService.ts" />
     <TypeScriptCompile Include="ClientApp\components\PhotoGallery\ImageComponent.tsx" />
-    <TypeScriptCompile Include="ClientApp\components\PhotoGallery\InfiniteScroller.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\PhotoGallery\InfiniteGalleryScroll.tsx" />
     <TypeScriptCompile Include="ClientApp\components\PhotoGallery\PhotoGallery.tsx" />
-    <TypeScriptCompile Include="ClientApp\components\SearchPhotos\SearchInput.tsx" />
-    <TypeScriptCompile Include="ClientApp\components\SearchPhotos\SearchPhotos.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\SearchImages\SearchInput.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\SearchImages\SearchImages.tsx" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

@@ -6,11 +6,12 @@ import 'react-tagsinput/react-tagsinput.css'
 import { BarLoader } from 'react-spinners';
 
 interface SearchInputProps {
+	tags: string[]
 	search: (tags: string[]) => {}
 }
 
 interface SearchInputState {
-	tags: string[]
+	//tags: string[]
 }
 
 export default class SearchInput extends React.Component<SearchInputProps, SearchInputState> {
@@ -19,23 +20,23 @@ export default class SearchInput extends React.Component<SearchInputProps, Searc
 	constructor() {
 		super();
 
-		this.state = {
-			tags: []
-		};
+		//this.state = {
+		//	tags: []
+		//};
 	}
 
-	changeHander(tags) {
-		this.setState({ tags })
-		this.props.search(tags);
-	}
+	//changeHander(tags) {
+	//	this.setState({ tags })
+	//	this.props.search(tags);
+	//}
 
 	public render() {
 		return <div className="search-input navbar-fixed-top">
 			<div className="col-md-6 col-md-offset-3">
 				<TagsInput
 					ref={(inp) => this.inputElement = inp}
-					value={this.state.tags}
-					onChange={(tags) => this.changeHander(tags)}
+					value={this.props.tags}
+					onChange={(tags) => this.props.search(tags)}
 					inputProps={{ placeholder: "Add search tag" }} />
 			</div>
 			<BarLoader loading={false} color={'#638421'} height={2} heightUnit={'px'} width={100} widthUnit={'%'} />

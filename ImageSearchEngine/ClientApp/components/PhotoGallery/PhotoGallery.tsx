@@ -60,17 +60,20 @@ export default class PhotoGallery extends React.Component<PhotoGalleryProps, Pho
 			lightboxIsOpen: true,
 		});
 	}
+
 	closeLightbox() {
 		this.setState({
 			currentImage: 0,
 			lightboxIsOpen: false,
 		});
 	}
+
 	gotoPrevious() {
 		this.setState({
 			currentImage: this.state.currentImage - 1,
 		});
 	}
+
 	gotoNext() {
 		this.setState({
 			currentImage: this.state.currentImage + 1,
